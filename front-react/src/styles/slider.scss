@@ -1,0 +1,13 @@
+.slick-dots {
+  bottom: 25px;
+}
+.slick-dots li.slick-active button:before {
+  color: #2996d8;
+}
+
+.slick-dots li button:before,
+.slick-dots li button:hover:before {
+  font-size: 18px;
+  color: #fff;
+  opacity: 0.75;
+}

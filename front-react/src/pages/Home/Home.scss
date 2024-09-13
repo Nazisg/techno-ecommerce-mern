@@ -1,0 +1,25 @@
+.outlined-text::before {
+    content: "HEADPHONE";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    font-size: 120px;
+    opacity: .2;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+  }
+.animate{
+   animation: bounce 1.5s infinite alternate
+}
+@keyframes bounce {
+   0% {
+    transform: translateY(0);
+}
+
+100% {
+    transform: translateY(-20px);
+} 
+}
+
