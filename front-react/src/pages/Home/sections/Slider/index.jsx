@@ -17,7 +17,7 @@ function BannerSlider() {
         arrows: false, 
     };
     return (
-        <section className='slider relative'>
+        <section className='slider relative h-[90vh]'>
             <Slider {...settings}>
                 <div className="relative h-[90vh]">
                     <img src={banner1} alt="Banner 1" className="w-full h-full object-cover" />
