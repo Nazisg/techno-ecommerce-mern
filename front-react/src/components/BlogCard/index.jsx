@@ -9,8 +9,8 @@ function BlogCard() {
             </div>
             <div className='flex flex-col gap-2 p-4'>
                 <p className='text-sm'>01 May, 2024</p>
-                <h3 className='text-[22px]'>the Melodies of Mobile Technology</h3>
-                <p>In the symphony of modern living, technology orchestrates a constant rhythm, shaping our daily routines and interactions.</p>
+                <h3 className='text-base md:text-[22px] font-semibold'>the Melodies of Mobile Technology</h3>
+                <p className='text-sm md:text-base'>In the symphony of modern living, technology orchestrates a constant rhythm, shaping our daily routines and interactions.</p>
             </div>
         </div>
     )

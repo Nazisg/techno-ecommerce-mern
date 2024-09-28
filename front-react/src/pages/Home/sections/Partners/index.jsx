@@ -44,7 +44,7 @@ const Partners = () => {
     }, []);
 
     return (
-        <div className="py-8 md:py-10  overflow-hidden">
+        <div className="py-4 md:py-10 overflow-hidden">
             <div className="relative overflow-hidden">
                 <div
                     ref={sliderRef}
@@ -54,7 +54,7 @@ const Partners = () => {
                     {[...logos, ...logos, ...logos].map((logo, index) => (
                         <div
                             key={index}
-                            className="flex-shrink-0 w-40 h-10"
+                            className="flex-shrink-0 w-28 md:w-40 h-6 md:h-10"
                         >
                             <img
                                 src={logo.src}

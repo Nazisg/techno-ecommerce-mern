@@ -46,7 +46,7 @@ function OfferBox({ timer }) {
                     </div>
                 </div>
                 <div className='flex flex-col items-start gap-3'>
-                    <h2 className='font-semibold text-2xl'>Ultra Max 2.01 Big Display</h2>
+                    <h2 className='font-semibold text:xl md:text-2xl'>Ultra Max 2.01 Big Display</h2>
                     <div className='flex gap-1'>
                         <FaRegStar />
                         <FaRegStar />
@@ -55,15 +55,15 @@ function OfferBox({ timer }) {
                         <FaRegStar />
                     </div>
                     <div className='flex gap-2'>
-                        <p className='text-[#ff4a4a] font-semibold text-xl'>$30.00</p>
-                        <p className='text-[#2995D7] font-medium line-through'>$40.00</p>
+                        <p className='text-[#ff4a4a] font-semibold text-lg md:text-xl'>$30.00</p>
+                        <p className='text-[#2995D7] font-medium text-sm md:text-base line-through'>$40.00</p>
                     </div>
                     <div className='colors flex gap-2'>
                         <div className='w-6 h-6 rounded-full bg-[red]'></div>
                         <div className='w-6 h-6 rounded-full bg-[blue]'></div>
                     </div>
                     {timer &&
-                        <div className=" grid grid-cols-2 md:grid-cols-4 gap-2">
+                        <div className="grid grid-cols-4 md:grid-cols-4 gap-2">
                             <TimeBlock label="days" value={timeLeft.days} />
                             <TimeBlock label="hrs" value={timeLeft.hours} />
                             <TimeBlock label="mins" value={timeLeft.minutes} />
@@ -71,11 +71,10 @@ function OfferBox({ timer }) {
                         </div>
                     }
                     <div className='flex gap-2'>
-                        <button className='bg-[#2996d8] text-sm flex gap-2 text-white py-3 px-8 hover:bg-[#1a6ca8] transition-all'>
-                            <LuShoppingBasket /> Add to Cart
+                        <button className='bg-[#2996d8] text-sm flex gap-2 text-white py-3 px-4 md:px-8 hover:bg-[#1a6ca8] transition-all'>
+                            <LuShoppingBasket /> <p className='hidden md:block'>Add to Cart</p>
                         </button>
-
-                        <div className='flex gap-2 justify-center text-white text-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transform group-hover:translate-x-0 -translate-x-8 transition-all duration-500 ease-out'>
+                        <div className='flex gap-2 justify-center text-white text-lg opacity-100 md:opacity-0 md:invisible md:group-hover:visible md:group-hover:opacity-100 md:transform md:group-hover:translate-x-0 md:-translate-x-8 md:transition-all md:duration-500 md:ease-out'>
                             <div className='w-[43px] h-[43px] flex justify-center items-center bg-primary-blue cursor-pointer'>
                                 <IoHeartOutline />
                             </div>
