@@ -7,8 +7,8 @@ import logo from '../../assets/icons/logo.webp';
 function Header() {
   return (
     <header className='bg-black py-5 px-4 flex justify-between items-center'>
-      <img src={logo} alt="logo" />
-      <ul className='flex gap-5 text-white'>
+      <img src={logo} alt="logo" className='' />
+      <ul className='gap-5 text-white hidden md:flex'>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/products">Products</Link></li>
         <li><Link to="/pages">Pages</Link></li>
