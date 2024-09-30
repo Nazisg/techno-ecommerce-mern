@@ -6,10 +6,13 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {  
-        "primary-red": "#ff4a4a",  
-        "primary-blue":"#2996d8"
+      colors: {
+        "primary-red": "#ff4a4a",
+        "primary-blue": "#2996d8"
       },
+      backgroundImage: {
+        "bgImg": "url('/common-banner.webp')"
+      }
     },
   },
   plugins: [],

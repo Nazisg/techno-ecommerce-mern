@@ -5,6 +5,8 @@ import Blogs from './pages/Blogs';
 import Home from './pages/Home';
 import Pages from './pages/Pages';
 import Products from './pages/Products';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/pages" element={<Pages />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </Router>
