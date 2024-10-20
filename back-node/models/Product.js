@@ -10,11 +10,27 @@ const ProductSchema = mongoose.Schema({
     desc: {
         type: String,
         required: false,
-        default: 'There is no description about this product'
     },
     price: {
         type: Number,
         required: true
+    },
+    salePrice: {
+        type: Number,
+        required: false
+    },
+    mainImageUrl: {
+        type: String, // URL to the main image
+        required: true
+    },
+    additionalImageUrls: [{
+        type: String // URLs for additional images, useful for a carousel
+    }],
+    rating: {
+        type: Number,
+        min: 0,
+        max: 5,
+        default: 0
     },
     category: [{
         type: mongoose.Schema.Types.ObjectId,
