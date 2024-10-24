@@ -20,7 +20,7 @@ function Home() {
       <CategorySlider />
       <Products />
       <DiscountBanner />
-      <TopNewArrivals />
+      {/* <TopNewArrivals /> */}
       <LimitedTimeOffer />
       <OfferBanner />
       <Feedback />
