@@ -1,7 +1,5 @@
-// Path
 const mongoose = require('mongoose');
 
-// Schema 
 const UserSchema = mongoose.Schema({
     username: {
         type: String,
@@ -18,7 +16,7 @@ const UserSchema = mongoose.Schema({
     }
 });
 
-// Model
+
 const User = mongoose.model('users', UserSchema);
 
 module.exports = User;

@@ -1,7 +1,6 @@
-// Path
 const mongoose = require('mongoose');
 
-// Schema 
+ 
 const OrderSchema = mongoose.Schema({
     cardID: {
         type: mongoose.Schema.Types.ObjectId,
@@ -24,7 +23,7 @@ const OrderSchema = mongoose.Schema({
     timestamps: true
 });
 
-// Model
+
 const Order = mongoose.model('orders', OrderSchema);
 
 module.exports = Order;

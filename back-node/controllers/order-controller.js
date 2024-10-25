@@ -1,8 +1,8 @@
-// Path And Imports
+
 const orderService = require('../services/order-service');
 const cardService = require('../services/card-service');
 
-// Get All Orders
+
 exports.getAllOrders = async (req, res) => {
     try {
         const orders = await orderService.getAllOrders();
@@ -13,7 +13,6 @@ exports.getAllOrders = async (req, res) => {
     };
 };
 
-// Get Order By Card ID
 exports.getOrderByCardID = async (req, res) => {
     const id = req.params.id;
     try {
@@ -30,7 +29,7 @@ exports.getOrderByCardID = async (req, res) => {
     };
 };
 
-// Create New Order
+
 exports.createOrder = async (req, res) => {
     const id = req.params.id;
     const order = req.body;
@@ -63,7 +62,7 @@ exports.createOrder = async (req, res) => {
     };
 };
 
-// Edit Order
+
 exports.editOrder = async (req, res) => {
     const id = req.params.id;
     const query = req.query.isDelivered;
@@ -83,7 +82,7 @@ exports.editOrder = async (req, res) => {
     };
 };
 
-// Delete Order
+
 exports.deleteOrder = async (req, res) => {
     const id = req.params.id;
     try {

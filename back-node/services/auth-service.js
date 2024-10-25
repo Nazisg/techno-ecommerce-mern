@@ -5,23 +5,22 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cardService = require('../services/card-service');
 
-// Get User By Email
+
 exports.getUserByEmail = async email => {
     return await User.findOne({ email: email });
 };
 
-// Get All Tokens 
 exports.getAllTokens = async () => {
     return await Token.find();
 };
 
-// Remove Expired Token 
+
 exports.removeExpiredToken = async () => {
     const now = new Date();
     await Token.deleteMany({ expiresAt: { $lte: now } });
 };
 
-// Register
+
 exports.register = async user => {
     const { username, email, password } = user;
 
@@ -39,13 +38,13 @@ exports.register = async user => {
         password: hashedPassword
     });
 
-    await cardService.createCard(newUser._id); // When user registered succesfully, card creating automaitclly for user
+    await cardService.createCard(newUser._id); 
     await newUser.save();
 
     return { status: 201, message: 'Register Successfull! You can login!' };
 };
 
-// Access Token
+
 exports.refreshAccessToken = async refreshToken => {
     try {
         const decoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET_KEY);
@@ -64,7 +63,7 @@ exports.refreshAccessToken = async refreshToken => {
     };
 };
 
-// Login 
+
 exports.login = async user => {
     const { email, password } = user;
 
@@ -103,7 +102,7 @@ exports.login = async user => {
     };
 };
 
-// Logout
+
 exports.logout = async userId => {
     await Refresh.deleteMany({ userId: userId });
     return { status: 200, message: "Logout successful" };

@@ -1,7 +1,5 @@
-// Path
 const mongoose = require('mongoose');
 
-// Schema 
 const CardSchema = mongoose.Schema({
     product: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -21,7 +19,7 @@ const CardSchema = mongoose.Schema({
     timestamps: true
 });
 
-// Model
+
 const Card = mongoose.model('cards', CardSchema);
 
 module.exports = Card;

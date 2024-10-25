@@ -1,7 +1,6 @@
-// Path
 const mongoose = require('mongoose');
 
-// Schema 
+
 const CategorySchema = mongoose.Schema({
     title: {
         type: String,
@@ -15,7 +14,7 @@ const CategorySchema = mongoose.Schema({
     timestamps: true
 });
 
-// Model
+
 const Category = mongoose.model('categories', CategorySchema);
 
 module.exports = Category;

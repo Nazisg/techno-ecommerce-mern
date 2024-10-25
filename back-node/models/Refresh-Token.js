@@ -1,7 +1,6 @@
-// Path 
 const mongoose = require('mongoose');
 
-// Schema
+
 const TokenSchema = mongoose.Schema({
     token: {
         type: String,
@@ -19,7 +18,7 @@ const TokenSchema = mongoose.Schema({
     timestamps: true
 });
 
-// Model
+
 const Token = mongoose.model('refreshTokens', TokenSchema);
 
 module.exports = Token;

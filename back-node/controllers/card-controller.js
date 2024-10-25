@@ -2,7 +2,7 @@
 const cardService = require('../services/card-service');
 const productService = require('../services/product-service');
 
-// Get Card By User ID
+
 exports.getCardByID = async (req, res) => {
     const id = req.params.id;
     try {
@@ -32,12 +32,10 @@ exports.editCard = async (req, res) => {
 
         let totalPrice = 0;
 
-        // Loop over each product in the card and calculate the total price
         for (let item of cardItem.product) {
             const currentProduct = await productService.getProductByID(item);
 
             if (currentProduct) {
-                // If there's a sale price, use it, otherwise use the regular price
                 const priceToUse = currentProduct.salePrice || currentProduct.price;
                 totalPrice += priceToUse;
             } else {

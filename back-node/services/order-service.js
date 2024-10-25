@@ -1,7 +1,6 @@
-// Path And Imports
 const Order = require("../models/Order");
 
-// Get All Orders
+
 exports.getAllOrders = async () => {
     return await Order.find()
         .populate({
@@ -20,12 +19,12 @@ exports.getAllOrders = async () => {
         });
 };
 
-// Get Order By ID
+
 exports.getOrderByID = async id => {
     return await Order.findOne({ _id: id });
 };
 
-// Get Order By CardID
+
 exports.getOrderByCardID = async id => {
     return await Order.findOne({ cardID: id })
         .populate({

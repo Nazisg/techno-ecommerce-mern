@@ -1,7 +1,6 @@
-// Path and Imports
 const productService = require('../services/product-service');
 
-// Get All Products
+
 exports.getAllProducts = async (req, res) => {
     try {
         const products = await productService.getAllProducts();
@@ -12,7 +11,7 @@ exports.getAllProducts = async (req, res) => {
     }
 };
 
-// Get Product By ID
+
 exports.getProductByID = async (req, res) => {
     const { id } = req.params;
     try {
@@ -27,12 +26,12 @@ exports.getProductByID = async (req, res) => {
     }
 };
 
-// Add New Product
+
 exports.addProduct = async (req, res) => {
     const { title, desc, price, category, salePrice, mainImageUrl, additionalImageUrls, rating } = req.body;
 
     try {
-        // Validation for required fields
+        
         if (!title || !price || !category) {
             return res.status(400).json({ message: 'Please fill all required fields!' });
         }
@@ -41,14 +40,14 @@ exports.addProduct = async (req, res) => {
             title: title.toLowerCase(),
             desc,
             price,
-            salePrice, // Optional
-            mainImageUrl, // Required
-            additionalImageUrls, // Optional
-            rating: rating || 0, // Default to 0 if not provided
+            salePrice, 
+            mainImageUrl, 
+            additionalImageUrls, 
+            rating: rating || 0, 
             category
         };
 
-        // Add product to the database
+        
         await productService.addProduct(product);
         res.status(201).json({ message: 'Product added successfully' });
     } catch (error) {
@@ -57,7 +56,7 @@ exports.addProduct = async (req, res) => {
     }
 };
 
-// Edit Product
+
 exports.editProduct = async (req, res) => {
     const { id } = req.params;
     const { title, desc, price,  category, salePrice, mainImageUrl, additionalImageUrls, rating } = req.body;
@@ -69,7 +68,6 @@ exports.editProduct = async (req, res) => {
             return res.status(404).json({ message: "Product not found!" });
         }
 
-        // Create a new object with updated fields if they exist, otherwise retain the original value
         const updatedProduct = {
             title: title ? title.toLowerCase() : existingProduct.title,
             desc: desc || existingProduct.desc,
@@ -81,7 +79,7 @@ exports.editProduct = async (req, res) => {
             category: category || existingProduct.category
         };
 
-        // Update product in the database
+        
         await productService.editProduct(id, updatedProduct);
         res.status(200).json({ message: 'Product updated successfully' });
     } catch (error) {
@@ -90,7 +88,7 @@ exports.editProduct = async (req, res) => {
     }
 };
 
-// Delete Product
+
 exports.deleteProduct = async (req, res) => {
     const { id } = req.params;
 

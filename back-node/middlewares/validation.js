@@ -1,7 +1,7 @@
-// Imports
+
 const { check, validationResult } = require('express-validator');
 
-// Register Validation
+
 exports.validate_register = [
     check('email')
         .isEmail()
@@ -19,7 +19,7 @@ exports.validate_register = [
         .withMessage('Password must have minimum 1 special character'),
 ];
 
-// Handle Validation Errors
+
 exports.handle_validation_errors = (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

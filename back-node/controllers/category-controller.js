@@ -1,6 +1,6 @@
 const categoryService = require('../services/category-service');
 
-// Get All Categories
+
 exports.getAllCategories = async (req, res) => {
     try {
         const categories = await categoryService.getAllCategories();
@@ -11,7 +11,7 @@ exports.getAllCategories = async (req, res) => {
     }
 };
 
-// Get Category By ID
+
 exports.getCategoryByID = async (req, res) => {
     const { id } = req.params;
     try {
@@ -26,7 +26,7 @@ exports.getCategoryByID = async (req, res) => {
     }
 };
 
-// Add New Category
+
 exports.addCategory = async (req, res) => {
     const { title, image } = req.body;
     try {
@@ -34,19 +34,19 @@ exports.addCategory = async (req, res) => {
             return res.status(400).json({ message: 'Title and image are required' });
         }
 
-        // Check if category title already exists
+        
         const isExist = await categoryService.getCategoryByTitle(title.toLowerCase());
         if (isExist) {
             return res.status(400).json({ message: 'Category already exists' });
         }
 
-        // Prepare the category object
+       
         const newCategory = {
             title: title.toLowerCase(),
-            image // Image URL as string
+            image 
         };
 
-        // Add the category to the database
+        
         const addedCategory = await categoryService.addCategory(newCategory);
         res.status(201).json({ message: 'Category added successfully', category: addedCategory });
 
@@ -56,7 +56,7 @@ exports.addCategory = async (req, res) => {
     }
 };
 
-// Edit Category
+
 exports.editCategory = async (req, res) => {
     const { id } = req.params;
     const { title, image } = req.body;
@@ -66,25 +66,25 @@ exports.editCategory = async (req, res) => {
             return res.status(400).json({ message: 'Title and image are required' });
         }
 
-        // Check if the category exists by ID
+
         const category = await categoryService.getCategoryByID(id);
         if (!category) {
             return res.status(404).json({ message: "Category not found" });
         }
 
-        // Check if the new title already exists for another category
+      
         const isRepeat = await categoryService.getCategoryByTitle(title.toLowerCase());
         if (isRepeat && isRepeat._id.toString() !== id) {
             return res.status(400).json({ message: 'Category title already exists' });
         }
 
-        // Prepare the updated category object
+        
         const updatedCategory = {
             title: title.toLowerCase(),
             image
         };
 
-        // Update the category in the database
+       
         const editedCategory = await categoryService.editCategory(id, updatedCategory);
         res.status(200).json({ message: 'Category updated successfully', category: editedCategory });
 
@@ -94,7 +94,7 @@ exports.editCategory = async (req, res) => {
     }
 };
 
-// Delete Category
+
 exports.deleteCategory = async (req, res) => {
     const { id } = req.params;
     try {

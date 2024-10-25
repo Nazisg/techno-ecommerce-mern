@@ -1,7 +1,6 @@
-// Path
 const mongoose = require('mongoose');
 
-// Schema 
+
 const ProductSchema = mongoose.Schema({
     title: {
         type: String,
@@ -41,7 +40,7 @@ const ProductSchema = mongoose.Schema({
     timestamps: true
 });
 
-// Model
+
 const Product = mongoose.model('products', ProductSchema);
 
 module.exports = Product;

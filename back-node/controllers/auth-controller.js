@@ -1,7 +1,5 @@
-// Path And Register
 const authService = require('../services/auth-service');
 
-// Register 
 exports.register = async (req, res) => {
     const user = req.body;
     try {
@@ -13,7 +11,7 @@ exports.register = async (req, res) => {
     };
 };
 
-// Access Token 
+
 exports.refreshAccessToken = async (req, res) => {
     const { refreshToken } = req.body;
 
@@ -39,7 +37,7 @@ exports.refreshAccessToken = async (req, res) => {
     };
 };
 
-// Login 
+
 exports.login = async (req, res) => {
     const user = req.body;
     try {
@@ -74,7 +72,7 @@ exports.login = async (req, res) => {
     };
 };
 
-// Logout 
+
 exports.logout = async (req, res) => {
     const { userID } = req.user;
     try {
