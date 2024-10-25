@@ -1,9 +1,15 @@
-import React from 'react'
-import PageHeader from '../../components/PageHeader'
-import ProductCard from '../../components/ProductCard'
+import React from 'react';
 import { LuSettings2 } from "react-icons/lu";
+import PageHeader from '../../components/PageHeader';
+import ProductCard from '../../components/ProductCard';
+import { useGetProductsQuery } from '../../redux/services/productsApi';
 
 function Products() {
+  const { data: products, error, isLoading } = useGetProductsQuery();
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
   return (
     <div>
       <PageHeader route={'/products'} title={'Products'} />
@@ -138,7 +144,7 @@ function Products() {
                     Some text as placeholder. In real life you can have the elements you
                     have chosen. Like, text, images, lists, etc.
                   </div>
-                 
+
                 </div>
               </div>
               <p>5 products viewed</p>
@@ -155,10 +161,16 @@ function Products() {
             </div>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 pt-5 md:pt-8">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            {products?.map((product) => (
+              <ProductCard
+                key={product._id}
+                id={product._id}
+                title={product.title}
+                price={product.price}
+                salePrice={product?.salePrice}
+                imageUrl={product.mainImageUrl}
+              />
+            ))}
           </div>
         </div>
       </div>

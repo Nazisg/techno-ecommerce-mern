@@ -1,3 +1,25 @@
+
+const cardService = require('../services/card-service');
+const productService = require('../services/product-service');
+
+// Get Card By User ID
+exports.getCardByID = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const card = await cardService.getCardUserByID(id);
+        if (!card) {
+            return res.status(404).json("Card couldn't found!");
+        };
+        if (card.product.length === 0) {
+            return res.status(200).send('Card is empty');
+        };
+        res.status(200).json(card);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    };
+};
+
 exports.editCard = async (req, res) => {
     const id = req.params.id;
     const cardItem = req.body;

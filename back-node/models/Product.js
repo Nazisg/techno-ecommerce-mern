@@ -20,11 +20,11 @@ const ProductSchema = mongoose.Schema({
         required: false
     },
     mainImageUrl: {
-        type: String, // URL to the main image
+        type: String,
         required: true
     },
     additionalImageUrls: [{
-        type: String // URLs for additional images, useful for a carousel
+        type: String
     }],
     rating: {
         type: Number,
