@@ -13,7 +13,7 @@ router.post('/login', limiter, authController.login);
 
 router.post('/register', validate_register, handle_validation_errors, authController.register);
 
-t
+
 router.post('/logout', authController.logout);
 
 
