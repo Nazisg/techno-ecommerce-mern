@@ -36,7 +36,6 @@ const Login = () => {
             const { user, accessToken } = result; // Adjust according to your API response structure
             dispatch(setLogin({ user, accessToken })); // Dispatch action to store user data and token
 
-            // Redirect to the home page after successful login
             navigate('/'); // Redirect to /home
         } catch (err) {
             console.error('Login failed:', err);
